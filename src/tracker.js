@@ -84,6 +84,11 @@ export default class ThePlatformTracker extends nrvideo.VideoTracker {
     return 'New Relic';
   }
 
+  getPlayerName() { 
+    if ($pdk.name) return $pdk.name
+    else return 'thePlatform';
+  }
+
   getInstrumentationName() {
     return this.getPlayerName();
   }

@@ -18,13 +18,21 @@
       <link rel="alternate" href="http://link.theplatform.com/s/vwUEeC/media/F7Kp_b0_ukh8" type="application/smil+xml" />
 
       <script type="text/javascript" src="http://pdk.theplatform.com/pdk6/current/pdk/player.js"></script>
+      <script type="text/javascript" src="../dist/newrelic-video-theplatform.min.js"></script>
    </head>
 
    <body>
+      <!-- We can also initialize tracker by using the Platform official ecosystem
       <div 
-        id="player" class="tpPlayer"
-        tp:plugin0="type=tpplayer|URL=../dist/newrelic-video-theplatform.min.js|priority=1"
-      >  
-      </div>
+      id="player" class="tpPlayer"
+      tp:plugin0="type=tpplayer|URL=../dist/newrelic-video-theplatform.min.js|priority=1"
+    >  
+    </div> -->
+      <div id="player" class="tpPlayer"></div>
+      <script>
+         var tracker = new nrvideo.ThePlatformTracker($pdk.controller);
+         nrvideo.Core.addTracker(tracker);
+         $pdk.controller.loadReleaseURL("http://link.theplatform.com/s/vwUEeC/media/F7Kp_b0_ukh8", true);
+      </script>
    </body>
 </html>
